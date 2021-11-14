@@ -31,8 +31,35 @@ public class PracticaBucles {
      *   Utiliza solo bucles while
      */
     public void generarNumeros(int n)   {
-       //TODO
-
+        long total = 0;
+        int i = 0;
+        int media = 0;
+        int sumaImpar = 0;
+        int max = Integer.MIN_VALUE;
+        int aleatorio = generador.nextInt(6001)-1000; 
+        while(i < n){
+            String str = "";
+            str += System.out.printf("%12d: ", aleatorio, obtenerNumeroSinCeros(aleatorio));
+            i++;
+            if (i % 5 == 0 ){
+                 System.out.println();
+            }
+             media +=aleatorio;
+            if(esImpar(aleatorio)){
+                 sumaImpar += aleatorio;
+             }
+            else{
+                if(aleatorio > max){
+                   max = aleatorio; 
+                }
+            }
+            aleatorio = generador.nextInt(6001)-1000; 
+            
+        }
+        System.out.println();
+        System.out.println("La media es: " + media);
+        System.out.println("La suma de impares es: " + sumaImpar);
+        System.out.println("El mayor numero es: " + max);
     }
 
     /**
@@ -54,7 +81,7 @@ public class PracticaBucles {
      *   
      */
     public int obtenerNumeroSinCeros(int numero)   {
-        //TODO
+        
         
         
         return 0;
