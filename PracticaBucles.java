@@ -79,7 +79,8 @@ public class PracticaBucles {
      *   
      */
     public void escribirLetraN(int altura)    {
-       //TODO
+       System.out.println("Letra: N - Altura: " + altura);
+        escribirCaracter(CARACTER, altura);
 
     }
 
@@ -88,11 +89,19 @@ public class PracticaBucles {
      *  con bucles for
      */
     private void escribirCaracter(char caracter, int n)    {
-       //TODO
-       
-       
-       
-       
+        String figura = "";
+        for (int fila = 0; fila < n; fila++){
+            figura += caracter;
+            for (int diagonal = 0; diagonal < fila; diagonal++){
+                figura += ESPACIO;
+            }
+            figura += caracter ;
+            for (int col = n - fila; col > 1; col--){
+               figura += ESPACIO;
+            }
+            figura += caracter + "\n";
+        }
+        System.out.println(figura);
     }
 
 }
