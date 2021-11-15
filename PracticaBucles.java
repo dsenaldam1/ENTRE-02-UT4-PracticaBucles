@@ -1,6 +1,6 @@
 import java.util.Random;
 /**
- *    
+ *    @author  David Sena
  */
 public class PracticaBucles {
     private final char ESPACIO = ' ';
