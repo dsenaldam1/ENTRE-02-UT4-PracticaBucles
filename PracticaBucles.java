@@ -33,18 +33,20 @@ public class PracticaBucles {
     public void generarNumeros(int n)   {
         long total = 0;
         int i = 0;
-        int media = 0;
+        double media = 0;
         int sumaImpar = 0;
         int max = Integer.MIN_VALUE;
-        int aleatorio = generador.nextInt(6001)-1000; 
-        while(i < n){
+        int aleatorio = generador.nextInt(6001)-1000;
+        System.out.println("Nº maximo de aleatorios a generar " + n + "\no hasta que salga el 0 \n");
+        
+        while(i < n && aleatorio != 0){
             String str = "";
-            str += System.out.printf("%12d: ", aleatorio, obtenerNumeroSinCeros(aleatorio));
+            str += System.out.printf("%12d: %5d", aleatorio, obtenerNumeroSinCeros(aleatorio));
             i++;
             if (i % 5 == 0 ){
                  System.out.println();
             }
-             media +=aleatorio;
+             media += aleatorio;
             if(esImpar(aleatorio)){
                  sumaImpar += aleatorio;
              }
@@ -53,13 +55,17 @@ public class PracticaBucles {
                    max = aleatorio; 
                 }
             }
+            
             aleatorio = generador.nextInt(6001)-1000; 
             
         }
+        media /= n;
         System.out.println();
-        System.out.println("La media es: " + media);
-        System.out.println("La suma de impares es: " + sumaImpar);
-        System.out.println("El mayor numero es: " + max);
+        System.out.println();
+        System.out.printf("%25s%10.2f\n", "Media:", media);
+        System.out.printf("%25s%10d\n", "Suma impar:", sumaImpar);
+        System.out.printf("%25s%10d\n", "Máximo pares:", max);
+        
     }
 
     /**
@@ -81,10 +87,20 @@ public class PracticaBucles {
      *   
      */
     public int obtenerNumeroSinCeros(int numero)   {
-        
-        
-        
-        return 0;
+        int sinCero = 0;
+        int cifra = 0;
+        int cifras = 1;
+        int potencia =  0;
+        while(numero != 0){
+            cifra  = numero % 10;
+            numero = numero/ 10;
+            potencia = (int) Math.pow(10, cifras - 1);
+            if(cifra != 0){
+                sinCero += cifra * Math.pow(10, cifras - 1);
+                cifras++;
+            }
+        }
+        return sinCero;
     }
 
     /**
